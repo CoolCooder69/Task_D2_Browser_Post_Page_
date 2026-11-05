@@ -11,6 +11,8 @@ import Footer from "./components/footer";
 import Logout from "./Pages/Logout";
 import Post from "./Pages/post";
 import Pricing from "./Pages/pricing";
+import BrowsePosts from "./Pages/browsePosts";
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/post" element={<Post />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/browse" element={<BrowsePosts />} />
       </Routes>
       <Footer></Footer>
     </>

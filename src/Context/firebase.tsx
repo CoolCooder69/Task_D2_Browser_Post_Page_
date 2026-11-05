@@ -48,7 +48,7 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
     });
   }, []);
 
-  // Test setup: user docs are saved under the EMAIL
+
   useEffect(() => {
     if (!user?.email) return;
     return onSnapshot(
@@ -66,6 +66,10 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
 
   const loginInWithToken = (token: string) =>
     signInWithCustomToken(fireBaseAuth, token);
+
+  const useDB = () => {
+    return getFirestore(app); 
+  }
 
   const logoutUser = async (): Promise<boolean> => {
     try {
@@ -87,6 +91,7 @@ export const FirebaseProvider = ({ children }: { children: React.ReactNode }) =>
         loginInWIthMailAndPassword,
         loginInWithToken,
         logoutUser,
+        useDB
       }}
     >
       {children}

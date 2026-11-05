@@ -3,11 +3,16 @@ import { Field, FieldLabel } from "./ui/field";
 import { useState } from "react";
 import { Plus } from "lucide-react";
 
+import useUploadPost from "@/lib/uploadContent";
+
 const CreatePost = () => {
   const MAX_TITLE_LENGTH = 50;
   const MAX_DES_LENGTH = 200;
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
+  const uploadPost = useUploadPost();
+
+
   return (
     <>
       <div className="p-2 min-h-120 w-120">
@@ -49,6 +54,7 @@ const CreatePost = () => {
           <Button
             className="bg-yellow-200 border-black border hover:bg-yellow-200"
             variant="outline"
+            onClick={()=> uploadPost({title: title, content: post})}
           >
             <Plus> </Plus>
             Post

@@ -12,7 +12,7 @@ const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const handleOnClick = (e: React.ChangeEvent<HTMLInputElement>): void => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,8 +21,8 @@ const Login = () => {
     setLoading(true);
     setError(false);
     try {
-       await fireBase?.loginInWIthMailAndPassword({ ...form });
-      navigate("/signup"); 
+      await fireBase?.loginInWIthMailAndPassword({ ...form });
+      navigate("/");
     } catch (e) {
       console.log(e);
       setError(true);

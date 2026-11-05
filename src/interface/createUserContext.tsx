@@ -10,4 +10,5 @@ export interface IauthContextType {
   loginInWIthMailAndPassword: (data: ICreateUser) => Promise<UserCredential>;
   loginInWithToken: (token: string) => Promise<UserCredential>;
   logoutUser: () => Promise<boolean>;
+  useDB: ()=> any; 
 }
