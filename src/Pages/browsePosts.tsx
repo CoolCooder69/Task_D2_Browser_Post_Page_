@@ -22,8 +22,7 @@ const formatDate = (iso: string | null) =>
       })
     : "";
 
-// Shows a pulsing skeleton while the image loads, and a static
-// placeholder if there is no URL or the image fails to load.
+
 const Thumbnail = ({ src, title }: { src: string | undefined; title: string }) => {
   const [status, setStatus] = useState<"loading" | "loaded" | "error">(
     src ? "loading" : "error"
@@ -36,7 +35,6 @@ const Thumbnail = ({ src, title }: { src: string | undefined; title: string }) =
       return;
     }
     setStatus("loading");
-    // Cached images can finish loading before React attaches onLoad.
     const img = imgRef.current;
     if (img?.complete && img.naturalWidth > 0) setStatus("loaded");
   }, [src]);
