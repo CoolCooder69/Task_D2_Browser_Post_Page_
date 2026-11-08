@@ -10,8 +10,14 @@ const CreatePost = () => {
   const MAX_DES_LENGTH = 200;
   const [title, setTitle] = useState("");
   const [post, setPost] = useState("");
+  const [thumbnail, setThumbnail] = useState<File | null>(null); 
   const uploadPost = useUploadPost();
 
+  const handleOnChange = (e : React.ChangeEvent<HTMLInputElement> )=> {
+    const file = e.target.files?.[0]; 
+    if(!file) return; 
+    setThumbnail(file); 
+  }
 
   return (
     <>
@@ -51,10 +57,16 @@ const CreatePost = () => {
           <span>
             {post.length}/{MAX_DES_LENGTH}
           </span>
+          
+          <div>
+            <span>Upload Thumbnail</span>
+            <input type="file" accept="image/*" onChange={handleOnChange} />
+          </div>
+
           <Button
             className="bg-yellow-200 border-black border hover:bg-yellow-200"
             variant="outline"
-            onClick={()=> uploadPost({title: title, content: post})}
+            onClick={()=> uploadPost({title: title, content: post, thumbnail: thumbnail })}
           >
             <Plus> </Plus>
             Post
