@@ -14,7 +14,7 @@ const Logout = () => {
   return (
     <>
       <div className="min-h-80 flex justify-center items-center">
-        <div className="border rounded h-30 p-2 flex justify-center items-center flex-col gap-2">
+        <div className="border rounded mx-4 p-4 text-center flex justify-center items-center flex-col gap-2">
           <p>Are You Sure, you want to logout?</p>
           <button
             onClick={handleClick}

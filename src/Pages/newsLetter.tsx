@@ -3,7 +3,7 @@ import type {  MouseEvent } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const API_URL = "http://localhost:3000/api";
+const API_URL = `${import.meta.env.VITE_API_URL ?? "http://localhost:3000"}/api`;
 
 const NewsLetter = () => {
   const navigate = useNavigate();
@@ -73,13 +73,13 @@ const NewsLetter = () => {
   };
 
   return (
-    <div className="min-h-screen w-screen">
+    <div className="min-h-screen w-full px-4">
       {/* Newsletter */}
-      <div className="flex min-h-screen justify-center items-center ">
+      <div className="flex min-h-[80dvh] justify-center items-center">
         {/* Email form */}
-        <div className="flex h-fit border rounded-xl shadow-2xl p-20">
+        <div className="flex h-fit w-full max-w-lg border rounded-xl shadow-2xl p-6 sm:p-12 lg:p-20">
           <form
-            className="flex text-center flex-col gap-2"
+            className="flex w-full text-center flex-col gap-2"
             onSubmit={handleEmailSubmit}
           >
             <h1 className="text-2xl">Enter Your Email</h1>
@@ -107,7 +107,7 @@ const NewsLetter = () => {
 
         {/* OTP popup */}
         {showOtp && (
-          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 backdrop-blur-3xl bg-white text-center p-10 text-2xl rounded-xl shadow-2xl">
+          <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90vw] max-w-sm border-2 backdrop-blur-3xl bg-white text-center p-6 sm:p-10 text-xl sm:text-2xl rounded-xl shadow-2xl">
             <p className="mb-3 text-gray-700">Enter the OTP:</p>
 
             <div className="w-full h-full flex flex-col items-center gap-2">
@@ -115,7 +115,7 @@ const NewsLetter = () => {
                 type="number"
                 value={otp}
                 onChange={(e) => setOtp(e.target.value)}
-                className={`border-2 rounded-xl text-center ${otpColor}`}
+                className={`border-2 rounded-xl text-center w-full ${otpColor}`}
               />
 
               {/* Submit OTP */}

@@ -1,4 +1,3 @@
-
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CircleQuestionMark, PencilLine, Lock, Gift } from "lucide-react";
 import { useState } from "react";
@@ -11,7 +10,7 @@ const Post = () => {
 
   return (
     <>
-      <div className="w-full h-dvh p-10 flex flex-col justify-start items-center gap-5">
+      <div className="w-full min-h-dvh p-4 sm:p-10 flex flex-col justify-start items-center gap-5">
         <div>
           <h1 className="text-2xl">Share your thoughts.</h1>
         </div>
@@ -20,7 +19,7 @@ const Post = () => {
           <Tabs defaultValue="Post">
             <TabsList>
               <TabsTrigger
-                className="text-xl"
+                className="text-base sm:text-xl"
                 value="Post"
                 onClick={() => setPost(true)}
               >
@@ -29,7 +28,7 @@ const Post = () => {
               </TabsTrigger>
 
               <TabsTrigger
-                className="text-xl"
+                className="text-base sm:text-xl"
                 value="Que"
                 onClick={() => setPost(false)}
               >
@@ -68,7 +67,7 @@ const Post = () => {
           </button>
         </div>
 
-        <div>
+        <div className="w-full flex justify-center">
           {post ? <CreatePost /> : <CreateQue />}
         </div>
       </div>

@@ -16,9 +16,9 @@ interface IinputBoxProp{
 export function InputBox({heading, placeholder, onChange, type, name, value} : IinputBoxProp) {
   return (
     <Field>
-      <FieldLabel htmlFor="input-field-username">{heading}</FieldLabel>
+      <FieldLabel htmlFor={`input-${name}`}>{heading}</FieldLabel>
       <Input
-        id="input-field-username"
+        id={`input-${name}`}
         type={type}
         placeholder={placeholder}
         className="rounded-3xl"

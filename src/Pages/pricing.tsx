@@ -18,7 +18,7 @@ export default function Pricing() {
       }
       const token = await user.getIdToken();
       await axios.post(
-        "http://localhost:3000/api/upgrade",
+        `${import.meta.env.VITE_API_URL ?? "http://localhost:3000"}/api/upgrade`,
         {},
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -32,7 +32,7 @@ export default function Pricing() {
 
   return (
     <>
-      <div className="my-30 mx-auto grid max-w-3xl gap-6 md:grid-cols-2">
+      <div className="my-10 sm:my-20 mx-auto grid max-w-3xl gap-6 px-4 md:grid-cols-2">
         <Subscription
           name="Free"
           price="Free"

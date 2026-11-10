@@ -28,10 +28,10 @@ export function NavigateHover() {
             {formattedDate}
           </NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="w-96">
+            <ul className="w-[calc(100vw-3rem)] max-w-96">
               <ListItem href="/" title="Home"></ListItem>
               <ListItem href="/browse" title="Explore"></ListItem>
-              <ListItem href="/newsLetter" title="News Letter"></ListItem>
+              <ListItem href="/newsletter" title="News Letter"></ListItem>
               <ListItem href="/pricing" title="Pricing"></ListItem>
             </ul>
           </NavigationMenuContent>

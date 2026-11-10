@@ -14,7 +14,6 @@ interface IuploadContent {
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:3000";
 const CLOUDINARY_PUBLIC_KEY = import.meta.env.VITE_CLOUDINARY_PUBLIC_KEY;
 const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME; 
-let thumbnailURL : string; 
 
 const useUploadPost = () => {
   return useCallback(async ({ title, content, thumbnail }: IuploadContent) => {
@@ -24,10 +23,9 @@ const useUploadPost = () => {
       return;
     }
 
-    const handleThumbnail = async () => {
-      if (!thumbnail) return;
+    const handleThumbnail = async (): Promise<string | undefined> => {
+      if (!thumbnail) return undefined;
       const token = await user.getIdToken(); 
-      console.log(token); 
       const uploadSign = await axios.post<{
         signature: string;
         timestamp: string;
@@ -51,12 +49,12 @@ const useUploadPost = () => {
         photoData
       );
       
-      if(upload.status == 200) thumbnailURL = upload.data?.url; 
+      return upload.status === 200 ? (upload.data?.secure_url as string) : undefined;
     };
     try {
       const token = await user.getIdToken();
 
-      if(thumbnail) await handleThumbnail();  
+      const thumbnailURL = thumbnail ? await handleThumbnail() : undefined;
       const res = await axios.post<{ id: string; tier: string }>(
         `${API_URL}/api/posts`,
         { title, content, thumbnailURL },

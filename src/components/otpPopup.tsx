@@ -26,7 +26,7 @@ const OTP = ({ onClose, email, password }: OTPProps) => {
   const [err, setErr] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const BackendAPI = "http://localhost:3000/api/";
+  const BackendAPI = `${import.meta.env.VITE_API_URL ?? "http://localhost:3000"}/api/`;
 
   const validateOTP = async ({ email, password }: OTPValidate) => {
     if (val.length != 6) return;
@@ -52,11 +52,11 @@ const OTP = ({ onClose, email, password }: OTPProps) => {
 
   return (
     <>
-      <div className="absolute">
-        <div className="flex flex-col gap-2 border p-4 bg-white rounded-2xl justify-center items-center">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+        <div className="flex flex-col gap-2 border p-4 bg-white rounded-2xl justify-center items-center max-w-full">
           <span
             onClick={onClose}
-            className="self-start border rounded-full p-1 bg-red-400"
+            className="self-start border rounded-full p-1 bg-red-400 cursor-pointer"
           >
             <X></X>
           </span>

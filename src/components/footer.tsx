@@ -28,7 +28,7 @@ const Footer = () => {
   return (
     <>
       <footer>
-        <div className="w-full min-h-64 flex justify-between items-start pt-8 px-20 bg-black text-white border-t">
+        <div className="w-full min-h-64 flex flex-col md:flex-row justify-between items-start gap-8 py-8 px-6 sm:px-10 lg:px-20 bg-black text-white border-t">
           <div className="flex flex-col gap-2">
             <Heading1 title="Explore" />
             {exploreLinks.map((link) => (
@@ -64,8 +64,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="w-full px-20 py-4 bg-gray-950 text-gray-500 flex justify-between text-sm">
-          <span className="w-full flex gap-1.5 justify-center items-center text-yellow-200">
+        <div className="w-full px-6 sm:px-10 lg:px-20 py-4 bg-gray-950 text-gray-500 flex justify-between text-sm">
+          <span className="w-full flex flex-wrap gap-1.5 justify-center items-center text-yellow-200">
             Made with <Heart size={18}/> by Ravneet.
           </span>
         </div>
@@ -75,4 +75,4 @@ const Footer = () => {
 };
 
 
-export default Footer; 
+export default Footer;

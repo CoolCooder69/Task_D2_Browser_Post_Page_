@@ -38,8 +38,8 @@ const Login = () => {
 
   return (
     <>
-      <div className="w-dvw h-100 flex justify-center items-center my-50">
-        <div className="w-100 h-full rounded-2xl border-2 flex flex-col justify-start items-center p-10 gap-5">
+      <div className="w-full min-h-[70dvh] flex justify-center items-center px-4 py-10">
+        <div className="w-full max-w-md rounded-2xl border-2 flex flex-col justify-start items-center p-6 sm:p-10 gap-5">
           <div>
             <LogIn></LogIn>
           </div>

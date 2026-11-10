@@ -21,7 +21,7 @@ const CreatePost = () => {
 
   return (
     <>
-      <div className="p-2 min-h-120 w-120">
+      <div className="p-2 w-full max-w-120">
         <Field>
           <FieldLabel
             htmlFor="post-area"
@@ -35,7 +35,7 @@ const CreatePost = () => {
             name="post-area"
             id="post-area"
             placeholder="Title"
-            className="border-2 rounded-xl px-2"
+            className="border-2 rounded-xl px-2 py-1 w-full"
             onChange={(e) => {
               setTitle(e.target.value);
             }}
@@ -52,7 +52,7 @@ const CreatePost = () => {
               setPost(e.target.value);
             }}
             maxLength={MAX_DES_LENGTH}
-            className="border-2  rounded-xl p-4 min-h-100 my-2"
+            className="border-2 rounded-xl p-4 min-h-48 sm:min-h-100 my-2 w-full"
           />
           <span>
             {post.length}/{MAX_DES_LENGTH}

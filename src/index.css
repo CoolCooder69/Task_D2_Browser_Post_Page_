@@ -5,3 +5,7 @@
   box-sizing: border-box;
   font-family: "Space Mono", monospace;
 }
+
+
+html, body { overflow-x: hidden; }
+img, video { max-width: 100%; height: auto; }

@@ -12,7 +12,7 @@ const ArticleCard = ({
   const hasRatingHigh = Number(Stars) > 4;
 
   return (
-    <div className="cursor-pointer border w-80 p-5 rounded-2xl shadow-2xl transition duration-150 hover:scale-110">
+    <div className="cursor-pointer border w-full max-w-80 p-5 rounded-2xl shadow-2xl transition duration-150 md:hover:scale-105">
       <img
         src={ArticleImg}
         alt={Name}

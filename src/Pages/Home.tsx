@@ -73,13 +73,13 @@ const Home = ()=> {
   return (
     <>
       {/* Profile */}
-      <section className="my-20">
+      <section className="my-10 sm:my-20">
         <ProfileCard userName={user && user.email ? user.email : "Monkey"} />
       </section>
 
       {/* Gallery */}
       <Heading1 title="Gallery" />
-      <div className="w-full h-96 grid grid-cols-3 gap-4 p-4">
+      <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 p-4 [&>div]:aspect-[4/3] sm:[&>div]:aspect-auto sm:h-96">
         {galleryImages.map((img) => (
           <GalleryCard key={img} ImgUrl={img} />
         ))}
@@ -88,7 +88,7 @@ const Home = ()=> {
 
       {/* Featured Articles */}
       <Heading1 title="Featured Article" />
-      <div className="flex px-14 py-7 justify-around items-center">
+      <div className="flex flex-wrap px-4 sm:px-8 lg:px-14 py-7 gap-6 justify-center lg:justify-around items-center">
         {articles.map((article) => (
           <ArticleCard key={article.Name} {...article} />
         ))}
@@ -97,7 +97,7 @@ const Home = ()=> {
 
       {/* Featured Tutorials */}
       <Heading1 title="Featured Tutorials" />
-      <div className="flex px-14 py-7 justify-around items-center">
+      <div className="flex flex-wrap px-4 sm:px-8 lg:px-14 py-7 gap-6 justify-center lg:justify-around items-center">
         {tutorials.map((tutorial) => (
           <ArticleCard key={tutorial.Name} {...tutorial} />
         ))}
@@ -108,4 +108,4 @@ const Home = ()=> {
   );
 }
 
-export default Home; 
+export default Home;

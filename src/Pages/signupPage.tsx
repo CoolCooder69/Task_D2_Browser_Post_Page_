@@ -10,7 +10,7 @@ import OTP from "@/components/otpPopup";
 import { emailSchema } from "@/types";
 
 const Signup = () => {
-  const BackendAPI = "http://localhost:3000/api/";
+  const BackendAPI = `${import.meta.env.VITE_API_URL ?? "http://localhost:3000"}/api/`;
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -98,8 +98,8 @@ const Signup = () => {
 
   return (
     <>
-      <div className="w-dvw h-100 min-h-fit flex justify-center items-center m-15 relative">
-        <div className="min-h-fit rounded-2xl border-2 flex flex-col justify-start items-center p-10 gap-5">
+      <div className="w-full min-h-[70dvh] flex justify-center items-center px-4 py-10 relative">
+        <div className="w-full max-w-md rounded-2xl border-2 flex flex-col justify-start items-center p-6 sm:p-10 gap-5">
           <div>
             <LogIn></LogIn>
           </div>
