@@ -30,7 +30,7 @@ export function NavigateHover() {
           <NavigationMenuContent>
             <ul className="w-96">
               <ListItem href="/" title="Home"></ListItem>
-              <ListItem href="/settings" title="Profile"></ListItem>
+              <ListItem href="/browse" title="Explore"></ListItem>
               <ListItem href="/newsLetter" title="News Letter"></ListItem>
               <ListItem href="/pricing" title="Pricing"></ListItem>
             </ul>

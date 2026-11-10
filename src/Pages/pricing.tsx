@@ -3,18 +3,31 @@ import axios from "axios";
 import Subscription from "@/components/Premium";
 import BankPop from "@/components/bankCard";
 import { useFirebase } from "@/Context/firebase";
-
+import { useAuth } from "@/Context/AuthContext";
+import ErrorPop from "@/components/Errorpop";
 export default function Pricing() {
   const [modalOpen, setModalOpen] = useState(false);
-  const { user, isPremium } = useFirebase();
+  const { isPremium } = useFirebase();
+  const { user, loading } = useAuth();
 
   const handleUpgrade = async () => {
-    if (!user) throw new Error("Please log in first");
-    const token = await user.getIdToken();
-    await axios.post(
-      "http://localhost:3000/api/upgrade",
-      { headers: { Authorization: `Bearer ${token}` } } 
-    );
+    if (loading) return;
+    try {
+      if (!user) {
+        throw new Error("Please log in first");
+      }
+      const token = await user.getIdToken();
+      await axios.post(
+        "http://localhost:3000/api/upgrade",
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        },
+      );
+    } catch (e) {
+      console.log(e);
+      ErrorPop({ message: "Something went wrong." });
+    }
   };
 
   return (
